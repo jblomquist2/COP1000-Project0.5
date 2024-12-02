@@ -1,10 +1,10 @@
-def save():
+def save_vehicles():
   with open("AllowedVehiclesList.txt", "w") as db:
     for truck in AllowedVehiclesList:
       db.write(truck + "\n")
 
 AllowedVehiclesList = ["Ford F-150", "Chevrolet Silverado", "Tesla Cybertruck", "Toyota Tundra", "Nissan Titan", "Rivian R1T", "Ram 1500"]
-save()
+save_vehicles()
 
 print("********************************")
 print("AutoCountry Vehicle Finder v0.5")
@@ -36,7 +36,7 @@ while True:
     with open("AllowedVehiclesList.txt", "a") as db:
       response = input("Please enter the full Vehicle name you would like to add: ")
       AllowedVehiclesList.append(response)
-      save()
+      save_vehicles()
       print(f'You have added "{response}" as an authorized vehicle')
 
   elif number == 4:
@@ -45,7 +45,7 @@ while True:
       answer = input(f'Are you sure you want to remove "{response}" from the Authorized Vehicles list? ')
       if answer == "yes":
         AllowedVehiclesList.remove(response)
-        save()
+        save_vehicles()
         print(f'You have REMOVED "{response}" as an authorized vehicle')
 
   elif number == 5:
